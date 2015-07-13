@@ -21,7 +21,8 @@ class Webshopapps_Ordermanager_Model_Order_Observer
         $shippingAddress = !$order->getIsVirtual() ? $order->getShippingAddress() : null;
         $billingAddress = $order->getBillingAddress();
 	$shipping_address_custom = $shippingAddress->getName() .' '. $shippingAddress->getData("company") . ' '. $shippingAddress->getData("street");
-
+        $company = $shippingAddress->getData("company");
+        $uspfeedaddress = $shippingAddress->getData("street");
  	$CustId = $order->getCustomerId();
 	$Attention = $order->getCustomerSuffix();
         $Name = $order->getCustomerName();
@@ -51,8 +52,8 @@ class Webshopapps_Ordermanager_Model_Order_Observer
         $data = array(
                         'orders_id' => "CN".$incrementId,
                         'delivery_name' => $Name ,
-                        'delivery_company' => "",
-                        'delivery_street_address' => $Address,
+                        'delivery_company' => $company,
+                        'delivery_street_address' => $uspfeedaddress,
                         'delivery_suburb' => "",
                         'delivery_city' => $City,
                         'delivery_state' => $State,
