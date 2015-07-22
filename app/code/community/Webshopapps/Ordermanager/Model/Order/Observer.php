@@ -50,7 +50,7 @@ class Webshopapps_Ordermanager_Model_Order_Observer
 	}
         
         $data = array(
-                        'orders_id' => "CN".$incrementId,
+                        'orders_id' => $incrementId,
                         'delivery_name' => $Name ,
                         'delivery_company' => $company,
                         'delivery_street_address' => $uspfeedaddress,
